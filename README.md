@@ -1,4 +1,4 @@
-# Learning to use Django Authentication
+# Learning Django Authentication use !
 
 here you only find the Django authentication process that I'm learning to use too!
 
