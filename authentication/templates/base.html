@@ -1,0 +1,28 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    {% block style %}
+    <script src="{% static 'css/style.css' %}"></script>
+    {% endblock %}
+     {% tailwind_css %}
+</head>
+<body>
+<h1 class="text-3xl text-center">Welcome home authentication</h1>
+    <div class="flex justify-center aligns-center w-full">
+        <a class="text-2xl mx-5" href="{% url 'login:connection' %}">Connexion</a>
+        <a class="text-2xl mx-5 " href="{% url 'login:register' %}">S'inscrire</a>
+        <hr>
+        <a class="text-2xl mx-5 " href="{% url 'login:disconnect' %}">Se déconnecter</a>
+    </div>
+{% block body%}
+
+
+
+{% endblock %}
+</body>
+</html>

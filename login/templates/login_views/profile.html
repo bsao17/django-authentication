@@ -1,0 +1,10 @@
+{% extends '../base.html' %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+
+    <div>{{ user.first_name }} is connected</div>
+
+    {% endif %}
+
+{% endblock %]

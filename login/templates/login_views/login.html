@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+{% load static %}
+
+ {% block stle %}
+    <script src="{% static 'login/style.css' %}"></script>
+{% endblock %}
+
+{% block body%}
+    <h1>Login User</h1>
+    <form class="px-4 py-3 @container" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
