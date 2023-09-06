@@ -13,17 +13,27 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("home")
+            return redirect("login:profile")
         else:
             messages.info(request, "erreur de connexion, veuillez recommencer !")
-            return redirect("www.facebook.com")
+            return redirect("login:register")
     return render(request, "login_views/login.html", context={"form": form})
 
 
 def signup(request):
-    return render(request, 'login_views/signup.html')
+    form = UserCreationForm()
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+    return render(request, 'login_views/signup.html', context={"form": form})
 
 
 def disconnect(request):
     logout(request)
+    messages.info(request, "Vous êtes déconnecté !")
     return redirect("home")
+
+
+def profile(request):
+    return render(request, "login_views/profile.html")

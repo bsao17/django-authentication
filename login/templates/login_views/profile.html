@@ -1,10 +1,17 @@
 {% extends '../base.html' %}
 
-{% block body %}
-    {% if user.is_authenticated %}
+{% block body%}
+<div class="flex flex-col justify-evenly items-center text-2xl m-5">
+    <h1 class="text-4xl">Bienvenue sur votre profile</h1>
 
-    <div>{{ user.first_name }} is connected</div>
+ {% if user.is_authenticated %}
+    <div class="m-4 text-red-400 font-bold text-xs p-2 border border-white border-3 rounded bg-indigo-900">
+        <span class="text-white">
+            {{ user.username }} :
+        </span> is connected
+    </div>
+
 
     {% endif %}
-
-{% endblock %]
+</div>
+{% endblock%}

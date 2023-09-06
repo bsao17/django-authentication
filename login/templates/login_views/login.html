@@ -1,15 +1,19 @@
 {% extends '../base.html' %}
 {% load static %}
 
- {% block stle %}
+ {% block style %}
     <script src="{% static 'login/style.css' %}"></script>
 {% endblock %}
 
 {% block body%}
-    <h1>Login User</h1>
-    <form class="px-4 py-3 @container" method="post">
+    <h1 class="text-center m-5 text-4xl" id="title">Connexion utilisateur</h1>
+    <form id="form" class="px-4 py-3 flex flex-col justify-center items-center" method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
+        {{ form.as_ul }}
+        <button class="m-2 border border-2 border-black rounded w-40 m-auto bg-blue-800 text-white pt-2 pb-2" type="submit" value="Submit">Se connecter</button>
     </form>
 {% endblock %}
+
+{% for message in messages %}
+    <li class="text-2xl">Votre message: {{message}}</li>
+{% endfor%}
