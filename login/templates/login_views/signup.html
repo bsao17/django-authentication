@@ -2,9 +2,10 @@
 
 {% block body%}
     <h1>Signup</h1>
-    <form id="signup_form" class="px-4 py-3 flex flex-col justify-center items-stretch" method="post">
+    <form id="signup_form" class="px-4 py-3 flex flex-col justify-between items-center text-black" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input class="border border-2 border-black rounded w-40 m-auto bg-blue-800 text-white pt-2 pb-2" type="submit" value="S'inscrire">
     </form>
+
 {% endblock %}

@@ -15,17 +15,19 @@ def signin(request):
             login(request, user)
             return redirect("login:profile")
         else:
-            messages.info(request, "erreur de connexion, veuillez recommencer !")
-            return redirect("login:register")
+            messages.info(request, "login ou mot de passe incorrect !")
+            return redirect("login:connection")
     return render(request, "login_views/login.html", context={"form": form})
 
 
 def signup(request):
-    form = UserCreationForm()
+    form = UserCreationForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
             form.save()
             return redirect("profile")
+    else:
+        form = UserCreationForm()
     return render(request, 'login_views/signup.html', context={"form": form})
 
 
